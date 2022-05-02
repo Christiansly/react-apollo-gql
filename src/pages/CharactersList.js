@@ -1,6 +1,7 @@
 import React from 'react'
 import "./CharactersList.css"
 import useCharacters from '../hooks/useCharacters'
+import { Link } from 'react-router-dom'
 
 
 
@@ -11,10 +12,10 @@ function CharactersList() {
   return (
     <div className="CharactersList">
         {data.characters.results.map(character => {
-            return <div>
+            return <Link to={`/${character.id}`}>
                 <img src={character.image} />
                 <h2>{character.name}</h2>
-            </div>
+            </Link>
         })}
     </div>
   )
