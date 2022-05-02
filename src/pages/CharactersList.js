@@ -1,22 +1,11 @@
 import React from 'react'
-import {gql, useQuery} from "@apollo/client"
-import { BarLoader } from 'react-spinners'
 import "./CharactersList.css"
+import useCharacters from '../hooks/useCharacters'
 
-const GET_CHARACTERS = gql`
-    query {
-        characters {
-            results {
-                id 
-                name  
-                image
-            }
-        }
-    }
-`
+
 
 function CharactersList() {
-    const {error, data, loading} = useQuery(GET_CHARACTERS)
+    const {error, data, loading} = useCharacters()
     if(loading) return <div>Loading...</div>
     if(error) return <div>Something went wrong</div>
   return (
