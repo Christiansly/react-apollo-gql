@@ -7,7 +7,7 @@ import useCharacters from '../hooks/useCharacters'
 function CharactersList() {
     const {error, data, loading} = useCharacters()
     if(loading) return <div>Loading...</div>
-    if(error) return <div>Something went wrong</div>
+    if(error) return <div>{error}</div>
   return (
     <div className="CharactersList">
         {data.characters.results.map(character => {
